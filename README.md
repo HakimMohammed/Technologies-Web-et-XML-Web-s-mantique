@@ -4,4 +4,4 @@ A repository for the practices completed during the *Technologies Web et XML &am
 # Sections
 
 ## JavaScript
-You will find here the README file for this section [Secondary README](./JS/README.md).
+You will find here the README file for this section [JavaScript README](./JS/README.md).
