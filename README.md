@@ -5,3 +5,7 @@ A repository for the practices completed during the *Technologies Web et XML &am
 
 ## JavaScript
 You will find here the README file for this section [Secondary README](./JS/README.md).
+
+## Document Object Model
+You will find here the README file for this section [Secondary README](./DOM/README.md).
+
