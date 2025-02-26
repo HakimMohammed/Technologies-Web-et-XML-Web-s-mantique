@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul IMC</title>
+</head>
+<body>
+    <h1>Calculateur d'IMC</h1>
+
+    <div>
+        <div style="display: flex; gap: 20px; height: 2rem; align-items: center;">
+            <p>Poids (Kg)</p>
+            <input type="number" name="poids" id="poids">
+        </div>
+        <div style="display: flex; gap: 20px; height: 2rem; align-items: center;">
+            <p>Taille (m)</p>
+            <input type="number" name="taille" id="taille">
+        </div>
+    </div>
+
+    <br>
+
+    <button style="background-color: rgb(0, 129, 235); border-radius: 10%; height: 2.5rem; width: 7rem; color: white;">
+        Calculer
+    </button>
+
+    <p id="result"></p>
+
+    <script>
+        const imcCalculator = (weight, height) => {
+            if (!weight || !height || height === 0) {
+                return { imc: "Erreur", status: "Veuillez entrer des valeurs valides" };
+            }
+
+            let imc = weight / (height * height);
+            let status = "";
+
+            if (imc < 18.5) {
+                status = "Insuffisance pondérale";
+            } else if (imc < 25) {
+                status = "Corpulence normale";
+            } else if (imc < 30) {
+                status = "Surpoids";
+            } else if (imc < 35) {
+                status = "Obésité modérée";
+            } else if (imc < 40) {
+                status = "Obésité sévère";
+            } else {
+                status = "Obésité morbide ou massive";
+            }
+
+            return { imc: imc.toFixed(2), status };
+        };
+
+        document.querySelector('button').addEventListener('click', function() {
+            let weight = parseFloat(document.querySelector('#poids').value);
+            let height = parseFloat(document.querySelector('#taille').value);
+            let result = document.querySelector('#result');
+
+            let { imc, status } = imcCalculator(weight, height);
+            result.innerText = `Votre IMC est de ${imc}. Vous êtes en état de ${status}.`;
+        });
+    </script>
+</body>
+</html>

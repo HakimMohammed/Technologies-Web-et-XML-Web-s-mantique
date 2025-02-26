@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Simple</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; gap: 20px; max-width: 20%;">
+        <input type="number" id="first">
+        <input type="number" id="second">
+
+        <div style="display: flex; gap: 20px;">
+            <button id="add" class="operator">+</button>
+            <button id="sub" class="operator">-</button>
+            <button id="mul" class="operator">*</button>
+            <button id="div" class="operator">/</button>
+        </div>
+
+        <input type="number" id="result" disabled>
+    </div>
+
+    <script>
+        button = document.querySelectorAll('.operator');
+        button.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                let first = document.querySelector('#first').value;
+                let second = document.querySelector('#second').value;
+                let result = document.querySelector('#result');
+
+                switch (btn.id) {
+                    case 'add':
+                        result.value = parseInt(first) + parseInt(second);
+                        break;
+                    case 'sub':
+                        result.value = parseInt(first) - parseInt(second);
+                        break;
+                    case 'mul':
+                        result.value = parseInt(first) * parseInt(second);
+                        break;
+                    case 'div':
+                        result.value = parseInt(first) / parseInt(second);
+                        break;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
