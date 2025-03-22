@@ -7,6 +7,7 @@ import {
   createRouter,
   Outlet,
 } from "@tanstack/react-router";
+import { ProtectedRoute } from "./ProtectedRoute";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -21,7 +22,11 @@ const rootRoute = createRootRoute({
 const dashboardRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: () => <Dashboard />,
+  component: () => (
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  ),
 });
 
 const signInRoute = createRoute({
