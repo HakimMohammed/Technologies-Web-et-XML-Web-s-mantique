@@ -3,12 +3,15 @@ import { Input } from "@/components/ui/input";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Label } from "@radix-ui/react-label";
 import { AnyFieldApi, useForm } from "@tanstack/react-form";
+import { Link } from "@tanstack/react-router";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
     <>
       {field.state.meta.isTouched && field.state.meta.errors.length ? (
-        <em role="alert" className="text-destructive">{field.state.meta.errors.join(", ")}</em>
+        <em role="alert" className="text-destructive">
+          {field.state.meta.errors.join(", ")}
+        </em>
       ) : null}
       {field.state.meta.isValidating ? "Validating..." : null}
     </>
@@ -36,7 +39,6 @@ export default function SignIn() {
           e.stopPropagation();
           form.handleSubmit();
         }}
-
         className="flex flex-col gap-6"
       >
         <div>
@@ -111,7 +113,9 @@ export default function SignIn() {
             </Button>
           )}
         />
-        <p className="text-center">Already have an account ? <a href="">Sign up</a></p>
+        <p className="text-center">
+          Don't have an account ?<Link to="/signup"> Sign up</Link>
+        </p>
       </form>
     </AuthLayout>
   );

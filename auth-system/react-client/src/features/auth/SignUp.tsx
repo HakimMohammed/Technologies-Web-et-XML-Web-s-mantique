@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import AuthLayout from "@/layouts/AuthLayout";
 import { AnyFieldApi, useForm } from "@tanstack/react-form";
+import { Link } from "@tanstack/react-router";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
@@ -173,7 +174,9 @@ export default function SignUp() {
             </Button>
           )}
         />
-        <p className="text-center">Already have an account ? <a href="">Sign in</a></p>
+        <p className="text-center">Already have an account ? 
+            <Link to="/signin"> Sign in</Link>
+        </p>
       </form>
     </AuthLayout>
   );
