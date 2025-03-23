@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/hooks/useAuth";
 import AuthLayout from "@/layouts/AuthLayout";
 import { Label } from "@radix-ui/react-label";
 import { AnyFieldApi, useForm } from "@tanstack/react-form";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
@@ -20,14 +21,22 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
 
 export default function SignIn() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const {signIn} = useAuth();
+  const navigate = useNavigate({ from: "/signin" });
 
   const form = useForm({
     defaultValues: {
       email: "",
       password: "",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       console.log("user logging in using :", values.value.email);
+      try {
+        await signIn(values.value.email, values.value.password);
+        navigate({to: "/"});
+      } catch (error) {
+        console.error(error);
+      }
     },
   });
 

@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "id": "2756bc31-11b1-4d46-89b2-bce9ba3de84e",
+      "name": "Hakim",
+      "email": "hakim@gmail.com",
+      "password": "$2a$10$CwTycUXWue0Thq9StjUM0uRKCj4j6bwxlobUpqtIumBywFZc7RVKy"
+    }
+  ]
+}

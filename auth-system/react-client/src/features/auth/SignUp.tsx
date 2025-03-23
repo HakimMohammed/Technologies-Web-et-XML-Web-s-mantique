@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useAuth } from "@/hooks/useAuth";
 import AuthLayout from "@/layouts/AuthLayout";
 import { AnyFieldApi, useForm } from "@tanstack/react-form";
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 
 function FieldInfo({ field }: { field: AnyFieldApi }) {
   return (
@@ -20,6 +21,8 @@ function FieldInfo({ field }: { field: AnyFieldApi }) {
 
 export default function SignUp() {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const {signUp} = useAuth();
+  const navigate = useNavigate({from: "/signup"});
 
   const form = useForm({
     defaultValues: {
@@ -28,8 +31,14 @@ export default function SignUp() {
       password: "",
       confirmPassword: "",
     },
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       console.log("user signing up using :", values.value.email);
+      try {
+        await signUp(values.value.name, values.value.email, values.value.password);
+        navigate({to: "/"});
+      } catch (error) {
+        console.error(error);
+      }
     },
   });
 
