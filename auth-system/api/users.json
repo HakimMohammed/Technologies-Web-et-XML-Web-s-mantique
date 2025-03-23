@@ -5,6 +5,12 @@
       "name": "Hakim",
       "email": "hakim@gmail.com",
       "password": "$2a$10$CwTycUXWue0Thq9StjUM0uRKCj4j6bwxlobUpqtIumBywFZc7RVKy"
+    },
+    {
+      "id": "619f474a-8d38-40de-ab74-78294c8aa7be",
+      "name": "Mohamed",
+      "email": "example@gmail.com",
+      "password": "$2a$10$CwTycUXWue0Thq9StjUM0uMMWh/zvdFoOYi74mYPnUsAlyTfJ8EzS"
     }
   ]
 }
