@@ -1,3 +1,22 @@
-<h2>Dashboard</h2>
+<!-- <h2>Dashboard</h2>
 <p>Welcome, {{user?.name}}!</p>
-<button (click)="signOut()">Logout</button>
+<button (click)="signOut()">Logout</button> -->
+
+<div class="header">
+  <img src="icon.jpg" alt="logo" class="logo" />
+  <h1 class="title">
+    ENSET Mohammedia | Ecole Normale Supérieure de l'Enseignement Technique
+  </h1>
+</div>
+
+<div class="sidebar">
+  <button class="button-element">Home</button>
+  <button class="button-element" (click)="signOut()">Logout</button>
+</div>
+
+<div class="content">
+  <p class="title-content">
+    <span>Welcome Back</span><br />
+    Mr. {{ user?.name }}!
+  </p>
+</div>

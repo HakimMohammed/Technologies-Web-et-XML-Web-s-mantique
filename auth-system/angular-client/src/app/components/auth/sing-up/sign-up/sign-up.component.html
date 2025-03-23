@@ -1,17 +1,21 @@
-<h2>Sign Up</h2>
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label>Name:</label>
-    <input type="text" [(ngModel)]="name" name="name" required>
-  </div>
-  <div>
-    <label>Email:</label>
-    <input type="email" [(ngModel)]="email" name="email" required>
-  </div>
-  <div>
-    <label>Password:</label>
-    <input type="password" [(ngModel)]="password" name="password" required>
-  </div>
-  <button type="submit">Sign Up</button>
-</form>
-<p>Already registered? <a routerLink="/signin">Sign In</a></p>
+<div class="container">
+  <img src="icon.jpg" alt="Logo" />
+  <form (ngSubmit)="onSubmit()" class="auth-form">
+    <div class="auth-field">
+      <label class="label-element">Name</label>
+      <input class="input-element" type="text" [(ngModel)]="name" name="name" required />
+    </div>
+    <div class="auth-field">
+      <label class="label-element">Email</label>
+      <input class="input-element" type="email" [(ngModel)]="email" name="email" required />
+    </div>
+    <div class="auth-field">
+      <label class="label-element">Password</label>
+      <input class="input-element" type="password" [(ngModel)]="password" name="password" required />
+    </div>
+    <div class="auth-field">
+      <button type="submit" class="button-element">Sign Up</button>
+      <p>Already registered? <a routerLink="/signin">Sign In</a></p>
+    </div>
+  </form>
+</div>
